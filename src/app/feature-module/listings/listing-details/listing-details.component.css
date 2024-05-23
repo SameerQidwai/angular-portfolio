@@ -1,0 +1,293 @@
+.black{
+    color: black !important;
+}
+
+.featues-info span{
+    font-weight: normal !important;
+}
+.featues-info h5{
+    color: #CF243F !important;
+}
+
+.lisiting-featues h6{
+    color: black !important;
+}
+
+.listing-description li{
+    color: black !important;
+}
+
+.description-list p{
+    color: black !important;
+}
+
+.review-card p,span{
+    color: black !important;
+}
+
+.booking-list li,span{
+    color: black !important;
+}
+
+.listing-location-details{
+    background: white !important;
+    border-top: 1px solid #F4F4F4;
+    text-align: center;
+    display: block !important;
+    margin: 0px !important;
+    padding: 16px 0px !important;
+}
+
+.listing-location-details .from_time{
+    font-weight: normal !important;
+    font-size: 16px !important;
+    color: #2B346B;
+}
+
+.listing-content p {
+    color: black !important;
+}
+ 
+.listing-content .listing-price h3 {
+    color: #2B346B !important;
+}
+
+.listing-content .listing-price h3  span{
+    color: #2B346B !important;
+}
+
+.listing-button{
+    .btn-order{
+        background: #2B346B !important;
+    }
+    .icon-calendar{
+        color: white !important;
+    }
+}
+
+.listing-item .listing-img .fav-item .featured-text {
+    color: black;
+}
+
+.listing-item:hover{
+    .fav-icon{
+        background: #CF243F !important;
+        border: 1px solid #bb1f37 !important;
+    }
+    .btn-order{
+        border: 1px solid #bb1f37 !important;
+        background: #CF243F !important;
+    }
+
+    .featured-text{
+        background: #CF243F !important;
+        color: white !important;
+    }
+}
+
+
+.longterm_priceblock{
+    border: 1px solid #CF243F !important;
+    border-radius: 10px !important;
+    padding: 5px;
+    margin: 0px 10px 20px;
+}
+
+.align_center{
+    text-align: center;
+}
+
+.padding_left_5{
+    padding-left: 5px !important;
+}
+
+.padding_right_5{
+    padding-right: 5px !important;
+}
+
+
+.longterm_priceblock .longterm_pricetitle{
+    background: #2B346B;
+    color: white;
+    padding: 2px 10px;
+    height: 20px !important;
+    border-radius: 24px;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0em;
+    margin-bottom: 10px;
+}
+
+.longterm_priceblock .longterm_from{
+    color: #3D3D3D;
+    font-size: 12px;
+
+    .longterm_fromprice{
+        color: #CF243F !important;
+        font-size: 18px !important;
+        font-weight: bold;
+    }
+}
+
+.longterm_priceblock .longterm_inkl{
+    color: #3D3D3D;
+    font-size: 12px;
+    text-align: right;
+    .longterm_inklkm{
+        font-size: 16px !important;
+        font-weight: bold;
+        color: black !important;
+    }
+}
+
+.longterm_priceblock .action_btn{
+    color: white;
+    border-radius: 7px;
+    width: 100%;
+    padding: 2px 10px;
+    height: 20px !important;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.longterm_priceblock .longterm_enquiry{
+    background: #3D3D3D;
+}
+
+.longterm_priceblock .longterm_book{
+    background: #CF243F;
+}
+
+
+@media (min-width: 550px) {
+    .longterm_priceblock{
+        width: calc(100% - 20px) !important;
+    }
+}
+
+@media (min-width: 551px) {
+    .longterm_priceblock{
+        width: calc(50% - 20px) !important;
+    }
+}
+
+@media (min-width: 800px){
+    .longterm_priceblock{
+        width: calc(33.33% - 20px) !important;
+    }
+}
+
+.active_tab1 h4::before {
+    width: 33.33% !important;
+}
+
+.active_tab2 h4::before {
+    width: 33.33% !important;
+    left: 33.33% !important;
+}
+
+.active_tab3 h4::before {
+    width: 33.33% !important;
+    left: 66.66% !important;
+}
+
+.tabmain_title{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.first_tabblock{
+    text-align: center;
+}
+
+.first_tabblock p{
+    font-size: 18px;
+}
+
+.first_tabblock .tab_title {
+    color: #CF243F !important;
+}
+
+.first_tabblock .tab_value{
+    color: black !important;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.specifications_features img{
+    filter: brightness(0) saturate(100%) invert(21%) sepia(9%) saturate(6321%) hue-rotate(202deg) brightness(85%) contrast(92%);
+    height: 30px;
+}
+
+
+.rentalterms_see{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #CF243F;
+    cursor: pointer;
+}
+
+
+.product-detail-head .details-btn1{
+    background: #2B346B !important;
+    color:  white !important;
+}
+
+.product-detail-head .details-btn2{
+    background: #CF243F !important;
+    color:  white !important;
+}
+
+.product-img{
+    width: 100% !important;
+}
+
+.product-img img{
+    min-height: 450px !important;
+}
+
+.previewproduct-img{
+    min-height: 100px !important;
+    min-width: 190px !important;
+}
+
+.contact-btn {
+    background: #CF243F !important;
+    margin-top: 10px;
+}
+
+.review-sec {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.enquiry-btn{
+    margin: 16px 0px;
+    background-color: #2B346B !important;
+}
+
+
+.form-group .form-control,input{
+    border: 1px solid rgb(198, 198, 198) !important;
+    width: 100%;
+}
+
+.form-control input{
+    width: 100%;
+}
+
+.text-danger{
+    color: #CF243F !important;
+}

@@ -1,0 +1,293 @@
+
+	<section class="banner-section banner-slider">		
+		<div class="container">
+			<div class="home-banner">		
+				<div class="row align-items-center">					    
+					<div class="col-lg-6" data-aos="fade-down">
+						<h1 class="header_title title-holder">
+							<span class="typewriter_title">
+								{{mainSlider[currentIndex]['title']}} 
+							</span>
+						</h1>
+						<p class="header_description">{{mainSlider[currentIndex]['description']}}</p>
+						<div class="view-all">
+							<a [routerLink]="mainSlider[currentIndex]['route']" class="booknow_btn btn d-inline-flex align-items-center">Bestill Nå<span><i class="feather icon-arrow-right ms-2"></i></span></a>
+						</div>	
+					</div>
+					<div class="col-lg-6" data-aos="fade-down">
+						<div class="mainslider_imgblock">
+							<img 
+								[src]="mainSlider[currentIndex]['image']" 
+								data-aos="fade-down" 
+								class="img-fluid aos sliderbanner_image"
+								[alt]="mainSlider[currentIndex]['title']" 
+								[title]="mainSlider[currentIndex]['title']" 
+								width="794" 
+								height="597"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</section> 
+
+	<!-- Why Choose Us -->
+	<section class="section why-choose popular-explore" style="padding: 80px 0 80px 0 !important">
+		<div class="choose-left">
+			<img src="assets/img/bg/choose-left.png" class="img-fluid" alt="Why Choose Us" title="Why Choose Us?">
+		</div>	
+
+		<div class="container">
+			<!-- Heading title-->
+			<div class="section-heading"  data-aos="fade-down">
+				<h2>{{lang.v.select_service}}</h2>
+			</div>
+			<!-- /Heading title -->
+			<div class="row">
+				<div class="popular-slider-group">
+					<div class="rental-deal-slider">
+						<owl-carousel-o [options]="recommendedCarOptions">
+							<ng-container *ngFor="let data of servicelist">
+								<ng-template carouselSlide>
+									<div class="service_block">
+										<a class="serviceblock_content" [routerLink]="data.moreRoute">
+											<figure class="serviceblock_figure">
+												<div class="serviceblock_imgblock">
+													<img
+														src={{data.img}}
+														loading="lazy"
+														alt={{data.alt}}
+														title="{{data.alt}}"
+														width="328"
+														height="380"
+														sizes="(min-width: 1120px) 328px, (min-width: 360px) 328px, 300px"/>
+												</div>
+											
+												<p class="serviceblock_title">{{data.title}}</p>
+												<p class="serviceblock_description">{{data.description}}</p>
+											</figure>
+										</a>
+										<div class="serviceblock_actionbuttons">
+											<a [routerLink]="data.moreRoute" class="serviceblock_actionbtn _learn_morebtn">
+												{{lang.v.learn_more}}
+											</a>
+											<a [routerLink]="data.moreRoute" class="serviceblock_actionbtn _enquirybtn">
+												{{lang.v.request}}
+											</a>
+										</div>
+									</div>		
+								</ng-template>
+							</ng-container>
+						</owl-carousel-o>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</section>
+
+		<!-- /Why Choose Us -->
+
+
+	<!-- Popular Services -->
+	<section class="section popular-services popular-explore">		
+		<div class="container">	
+			<!-- Heading title-->
+			<div class="section-heading" data-aos="fade-down">
+				<h2>{{lang.v.explore_the_most_popular_cars}}</h2>
+			</div>
+
+			<!-- /Heading title -->
+			<div class="row justify-content-center" *ngIf="app.record_validation(manufacturer_list)">
+				<div class="col-lg-12" data-aos="fade-down">
+					<div class="listing-tabs-group">
+						<ul class="nav listing-buttons gap-3" data-bs-tabs="tabs">
+							<li *ngFor="let item of manufacturer_list; let i = index" (click)="call_manufacturepopularitemlist(item.manufacturer_id)">
+								<a [ngClass]="{'active': (!app.record_validation(manufacturer_id) && i == 0) ||  item.manufacturer_id == manufacturer_id}">
+									<span>
+										<ng-container *ngIf="app.record_validation(item.manufacturer_image)">
+											<img 
+												src="{{app.SOURCE_URL}}{{item.manufacturer_image}}" 
+												alt={{item.manufacturer_name_no}}
+												title={{item.manufacturer_name_no}} 
+												width="13"
+												height="13"/>
+										</ng-container>
+						
+										<ng-container *ngIf="!app.record_validation(item.manufacturer_image)">
+											<img src="assets/img/icons/car-icon-01.svg" alt="Biler" title="Biler">
+										</ng-container>
+									</span>
+
+									<ng-container *ngIf="app.current_lang == 'en'">
+										{{item.manufacturer_name}}
+									</ng-container>
+
+									<ng-container *ngIf="app.current_lang == 'no'">
+										{{item.manufacturer_name_no}}
+									</ng-container>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+							
+			<div class="tab-content">
+				<div class="tab-pane active">	
+					<div class="row" *ngIf="app.record_validation(item_list)">
+						<!-- col -->
+						<div class="col-lg-4 col-md-6 col-12" data-aos="fade-down" *ngFor="let item of item_list">
+							<div class="listing-item">										
+								<div [routerLink]="routes.listingDetails+'/'+item.item_id" class="listing-img caritem_bg" style="background: url({{app.SOURCE_URL}}{{item.item_image}}) 0 0/100% 100%;">
+									<div class="fav-item" *ngIf="app.record_validation(item.item_code)">
+										<span class="featured-text">{{item.item_code}}</span>									
+									</div>	
+								</div>										
+								<div class="listing-content">
+									<div class="listing-features">
+										<a href="javascript:void(0)" class="author-img" *ngIf="app.record_validation(item.vsize.vsize_name)">
+											<div class="listing_size">
+												<p>
+													<ng-container *ngIf="app.current_lang == 'en'">
+														{{item.vsize.vsize_name}}
+													</ng-container>
+				
+													<ng-container *ngIf="app.current_lang == 'no'">
+														{{item.vsize.vsize_name_no}}
+													</ng-container>
+												</p>
+											</div>
+										</a>
+										<h3 class="listing-title">
+											<a [routerLink]="routes.listingDetails+'/'+item.item_id">
+												<ng-container *ngIf="app.current_lang == 'en'">
+													{{item.item_name}}
+												</ng-container>
+			
+												<ng-container *ngIf="app.current_lang == 'no'">
+													{{item.item_name_no}}
+												</ng-container>
+											</a>
+										</h3>																	  
+									</div> 
+									<div class="listing-details-group">
+										<ul>
+											<ng-container *ngFor="let itag of item.itemtag_list;let i = index">
+												<li *ngIf="i <= 2">
+													<span>
+														<ng-container *ngIf="app.record_validation(itag.tag.tag_image)">
+															<img src="{{app.SOURCE_URL}}{{itag.tag.tag_image}}" alt="tag_image">
+														</ng-container>
+										
+														<ng-container *ngIf="!app.record_validation(itag.tag.tag_image)">
+															<img src="assets/img/icons/car-parts-01.svg" alt="bildeler" title="bildeler">
+														</ng-container>
+													</span>
+													<p>
+														<ng-container *ngIf="app.current_lang == 'en'">
+															{{itag.tag.tag_name}}
+														</ng-container>
+					
+														<ng-container *ngIf="app.current_lang == 'no'">
+															{{itag.tag.tag_name_no}}
+														</ng-container>
+													</p>
+												</li>
+											</ng-container>
+										</ul>
+
+										<ul>
+											<ng-container *ngFor="let itag of item.itemtag_list;let i = index">
+
+												<li *ngIf="item.itemtag_list.length < 3" style="height: 22.5px;"></li>
+
+												<li *ngIf="i >= 3 && i <= 5;">
+													<span>
+														<ng-container *ngIf="app.record_validation(itag.tag.tag_image)">
+															<img src="{{app.SOURCE_URL}}{{itag.tag.tag_image}}" alt="tag_image">
+														</ng-container>
+										
+														<ng-container *ngIf="!app.record_validation(itag.tag.tag_image)">
+															<img src="assets/img/icons/car-parts-01.svg" alt="bildeler" title="bildeler">
+														</ng-container>
+													</span>
+													<p>
+														<ng-container *ngIf="app.current_lang == 'en'">
+															{{itag.tag.tag_name}}
+														</ng-container>
+					
+														<ng-container *ngIf="app.current_lang == 'no'">
+															{{itag.tag.tag_name_no}}
+														</ng-container>
+													</p>
+												</li>
+											</ng-container>
+										</ul>
+									</div>																 
+									<div class="listing-location-details">
+										<div class="listing-price">
+											<h3><span class="from_time">{{lang.v.from}} </span> {{item.item_rate | number: '1.0-0'}} <span class="from_time">/ {{lang.v.day}}</span></h3>
+										</div>
+									</div>
+									<div class="listing-button">
+										<a [routerLink]="routes.listingDetails+'/'+item.item_id" class="btn btn-order"><span><i class="feather icon-calendar me-2"></i></span>{{lang.v.rent_now}}</a>
+									</div>	
+								</div>
+							</div>		 
+						</div>
+						<!-- /col -->
+					</div>						
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Popular Services -->
+
+	<!-- About us Testimonials -->
+	<section class="section about-testimonial testimonials-section">
+		<div class="container">
+			<!-- Heading title-->
+			<div class="section-heading" data-aos="fade-down">
+				<h2 class="title text-white">{{lang.v.what_people_say_about_us}}</h2>
+			</div>
+			<!-- /Heading title -->
+			<div class="about-testimonials testimonial-group mb-0 owl-theme">
+				<!-- Carousel Item -->
+				<owl-carousel-o [options]="testimonialOptions">
+					<ng-container *ngFor="let data of testimonial">
+						<ng-template carouselSlide>
+						<div class="testimonial-item d-flex">
+							<div class="card flex-fill">
+							<div class="card-body">
+								<div class="review-box">
+									<div class="review-details" style="margin: 0px !important;">
+										<h6>{{ data.Name }}</h6>
+										<div class="list-rating">
+										<div class="list-rating-star">
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+										</div>
+										<p>
+											<span>{{ data.rating }}</span>
+										</p>
+										</div>
+									</div>
+								</div>
+								<p>
+								{{ data.para }}
+								</p>
+							</div>
+							</div>
+						</div>
+						</ng-template>
+					</ng-container>
+					</owl-carousel-o>
+				<!-- /Carousel Item  -->
+			</div>
+		</div>
+	</section>
+	<!-- About us Testimonials -->

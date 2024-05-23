@@ -1,0 +1,54 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h1 class="breadcrumb-title">{{lang.v.about_company}}</h1>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home">{{lang.v.home}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{lang.v.reviews}}</li>
+                    </ol>
+                </nav>							
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadscrumb Section -->	
+
+<!-- Testimonials-->
+<div class="testimonials-section">
+    <div class="container">
+        <div class="testimonial-group">
+            <div class="row">
+                <!-- Col -->
+                <ng-container *ngFor="let data of testimonial">               
+                    <div class="col-lg-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100">
+                        <div class="card flex-fill">
+                            <div class="card-body">								
+                                <div class="review-box">
+                                    <div class="review-details" style="margin: 0px !important;">
+                                        <h6>{{ data.Name }}</h6>
+                                        <div class="list-rating">
+                                            <div class="list-rating-star">
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            </div>
+                                            <p><span>{{ data.rating }}</span></p>
+                                        </div>																	
+                                    </div>
+                                </div>									
+                                <p>{{ data.para }}</p>	
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- /Col -->
+            </div>
+        </div>
+    </div>				   
+</div>	
+<!-- /Testimonials-->	

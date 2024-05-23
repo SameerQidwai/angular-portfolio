@@ -1,0 +1,99 @@
+        <!-- Breadscrumb Section -->
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-12 col-12">
+                        <h1 class="breadcrumb-title">{{lang.v.moving_agency}}</h1>
+                        <nav aria-label="breadcrumb" class="page-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a [routerLink]="routes.home">{{lang.v.home}}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{lang.v.moving_agency}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Breadscrumb Section -->
+
+        <!-- /* Moving Agency Section */ -->
+        <div class="container">
+            <!-- Heading title-->
+            <!-- <div class="main-heading-moving-agency"  data-aos="fade-down">
+                        <h1>{{lang.v.moving_agency}}</h1>
+                    </div> -->
+            <div class="section-heading section-heading-content" data-aos="fade-down">
+                <h2>{{lang.v.is_it_time_to_move_to_a}}</h2>
+            </div>
+
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-12" data-aos="fade-down">
+                            <p>{{lang.v.flyttom_experience_description}}</p>
+                            <p>{{lang.v.heaviest_lifting_description_2}}</p>
+                            <p>{{lang.v.heaviest_lifting_description}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-12" data-aos="fade-down">
+                            <h5>{{lang.v.company_moving_assignment_2}}</h5>
+                            <ul class="bold-dot">
+                                <ng-container *ngFor="let assignment of companyMovingAssignment; let i = index">
+                                    <li>{{assignment.item}}</li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-12" data-aos="fade-down">
+                            <h5>{{lang.v.practical_tips_on_packing}}</h5>
+                            <ul class="bold-dot">
+                                <ng-container *ngFor="let tip of packingTips; let i = index">
+                                    <li>{{tip.item}}</li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="about-content moving-content">
+                                <div class="section-heading">
+                                    <h2 class="checkbox_headtitle">{{lang.v.individual_moving_assignment}}</h2>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 col-lg-3 checkbox_block">
+                                        <i class="fas fa-check-circle"></i>
+                                        <a href="privatflytting">
+                                            <p>{{lang.v.private_moving}}</p>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 checkbox_block">
+                                        <i class="fas fa-check-circle"></i>
+                                        <a href="bedriftsflytting">
+                                            <p>{{lang.v.company_moving}}</p>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 checkbox_block">
+                                        <i class="fas fa-check-circle"></i>
+                                        <a href="pakking">
+                                            <p>{{lang.v.packing}}</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- //* Moving Agency Content */ -->

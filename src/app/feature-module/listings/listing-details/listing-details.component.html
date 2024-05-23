@@ -1,0 +1,523 @@
+		
+    <ng-container *ngIf="app.record_validation(response)">
+        <!-- Breadscrumb Section -->
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row align-items-center text-center">
+		    		<div class="col-md-12 col-12">
+			    	    <h1 class="breadcrumb-title">
+                            {{lang.v.rental}}
+                        </h1>
+				    	<nav aria-label="breadcrumb" class="page-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a [routerLink]="routes.home">{{lang.v.home}}</a></li>
+								<li class="breadcrumb-item active" aria-current="page">
+                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                        {{item_result.item_name}}
+                                    </ng-container>
+
+                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                        {{item_result.item_name_no}}
+                                    </ng-container>
+                                </li>
+							</ol>
+						</nav>							
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadscrumb Section -->
+        
+        <!-- Detail Page Head-->
+        <section class="product-detail-head">
+            <div class="container">
+                <div class="detail-page-head">
+                    <div class="detail-headings">
+                        <div class="star-rated">
+                            <div class="camaro-info">
+                                <h3>
+                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                        {{item_result.item_name}}
+                                    </ng-container>
+
+                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                        {{item_result.item_name_no}}
+                                    </ng-container>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-btn">
+                        <a class="details-btn1" *ngIf="app.record_validation(item_result.item_code)">{{item_result.item_code}}</a>
+                        <a class="details-btn2" *ngIf="app.record_validation(vsize_result)">
+                            <ng-container *ngIf="app.current_lang == 'en' && app.record_validation(vsize_result.vsize_name)">
+                                {{vsize_result.vsize_name}}
+                            </ng-container>
+
+                            <ng-container *ngIf="app.current_lang == 'no' && app.record_validation(vsize_result.vsize_name_no)">
+                                {{vsize_result.vsize_name_no}}
+                            </ng-container>
+                        </a>
+                    </div>				  
+                </div>
+            </div>
+        </section>
+        <!-- /Detail Page Head-->
+
+        <section class="section product-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="detail-product">
+                            <ng-container *ngIf="app.record_validation(itemimage_list)">
+                                <div class="slider">
+                                    <ngx-slick-carousel  #slickModal="slick-carousel" [config]="slideConfig" data-sizes="50vw" class="detail-bigimg">
+                                        <div ngxSlickItem class="product-img" *ngFor="let data of itemimage_list">
+                                            <img src="{{app.SOURCE_URL}}{{data.itemimage_src}}" alt="{{lang.v.rental}}" title="{{lang.v.rental}}">
+                                        </div>
+                                    </ngx-slick-carousel>
+                                </div>
+                                <div class="slider">
+                                    <ngx-slick-carousel  #slickModal="slick-carousel" [config]="slideConfig2" data-sizes="50vw" class="slider-nav-thumbnails">
+                                        <div class="previewproduct-img" ngxSlickItem  *ngFor="let data of itemimage_list">
+                                            <img src="{{app.SOURCE_URL}}{{data.itemimage_src}}" alt="{{lang.v.rental}}" title="{{lang.v.rental}}">
+                                        </div>
+                                    </ngx-slick-carousel>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!--Listing Features Section-->
+                        <div class="review-sec specification-card ">
+                            <div class="review-header">
+                                <h4>{{lang.v.from_prices}}</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="lisiting-featues">
+                                    <div class="row">
+                                        <div class="longterm_priceblock d-flex align-items-center col-sm-6 col-md-4">
+                                            <div class="row">
+                                                <div class="col-12 align_center">
+                                                    <a class="longterm_pricetitle">{{lang.v.day_rent}}</a>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_from">{{lang.v.from}}:  <span class="longterm_fromprice">Kr {{item_result.item_rate | number: '1.0-0'}},-</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_inkl">{{lang.v.incl}}: <span class="longterm_inklkm">{{item_result.item_ratenarration}}</span> km</p>
+                                                </div>
+
+                                                <div class="col-6 padding_right_5">
+                                                    <a class="action_btn longterm_enquiry" (click)="trigger_enquiryform()">{{lang.v.enquiry}}</a>
+                                                </div>
+
+                                                <div class="col-6 padding_left_5">
+                                                    <a class="action_btn longterm_book">{{lang.v.book}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="longterm_priceblock d-flex align-items-center col-sm-6 col-md-4">
+                                            <div class="row">
+                                                <div class="col-12 align_center">
+                                                    <a class="longterm_pricetitle">{{lang.v.daily_rent}}</a>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_from">{{lang.v.from}}:  <span class="longterm_fromprice">Kr {{item_result.item_monthlyrate | number: '1.0-0'}},-</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_inkl">{{lang.v.incl}}: <span class="longterm_inklkm">{{item_result.item_monthlyratenarration}}</span> km</p>
+                                                </div>
+
+                                                <div class="col-6 padding_right_5">
+                                                    <a class="action_btn longterm_enquiry" (click)="trigger_enquiryform()">{{lang.v.enquiry}}</a>
+                                                </div>
+
+                                                <div class="col-6 padding_left_5">
+                                                    <a class="action_btn longterm_book">{{lang.v.book}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="longterm_priceblock d-flex align-items-center col-sm-6 col-md-4">
+                                            <div class="row">
+                                                <div class="col-12 align_center">
+                                                    <a class="longterm_pricetitle">{{lang.v.weekend_rent}}</a>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_from">{{lang.v.from}}:  <span class="longterm_fromprice">Kr {{item_result.item_yearlyrate | number: '1.0-0'}},-</span></p>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="longterm_inkl">{{lang.v.incl}}: <span class="longterm_inklkm">{{item_result.item_yearlyratenarration}}</span> km</p>
+                                                </div>
+
+                                                <div class="col-6 padding_right_5">
+                                                    <a class="action_btn longterm_enquiry" (click)="trigger_enquiryform()">{{lang.v.enquiry}}</a>
+                                                </div>
+
+                                                <div class="col-6 padding_left_5">
+                                                    <a class="action_btn longterm_book">{{lang.v.book}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>	
+                            </div>	
+                        </div>	
+
+
+                        <div class="review-sec specification-card"   [ngClass]="{'active_tab1': activeTab == 1, 'active_tab2': activeTab == 2,'active_tab3': activeTab == 3}">
+                            <div class="review-header row align_center">
+                                <div class="col-4" (click)="changeTab(1)">
+                                    <h4 class="">{{lang.v.technical}} <br> {{lang.v.specifications}}</h4>
+                                </div>
+                                <div class="col-4" (click)="changeTab(2)">
+                                    <h4>{{lang.v.insurances}}</h4>
+                                </div>
+                                <div class="col-4" (click)="changeTab(3)">
+                                    <h4>{{lang.v.general}} <br> {{lang.v.rental_conditions}}</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="lisiting-featues">
+                                    <div class="row" *ngIf="activeTab == 1">
+                                        <div class="col-12">
+                                            <h5 class="tabmain_title"><b>{{lang.v.technical_specifications}}</b></h5>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="first_tabblock">
+                                                <p class="tab_title">{{lang.v.stated_consumption}}</p>
+                                                <p class="tab_value"> 
+                                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                                        {{item_result.item_statedconsumption}}
+                                                    </ng-container>
+                
+                                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                                        {{item_result.item_statedconsumption_no}}
+                                                    </ng-container>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="first_tabblock">
+                                                <p class="tab_title">{{lang.v.co2_emissions}}</p>
+                                                <p class="tab_value">
+                                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                                        {{item_result.item_co2emissions}}
+                                                    </ng-container>
+                
+                                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                                        {{item_result.item_co2emissions_no}}
+                                                    </ng-container>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="first_tabblock">
+                                                <p class="tab_title">{{lang.v.range}}</p>
+                                                <p class="tab_value">
+                                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                                        {{item_result.item_range}}
+                                                    </ng-container>
+                
+                                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                                        {{item_result.item_range_no}}
+                                                    </ng-container>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-3 col-md-4">
+                                            <div class="first_tabblock">
+                                                <p class="tab_title">{{lang.v.luggage_compartment}}</p>
+                                                <p class="tab_value"> 
+                                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                                        {{item_result.item_luggage}}
+                                                    </ng-container>
+                
+                                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                                        {{item_result.item_luggage_no}}
+                                                    </ng-container>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" *ngIf="activeTab == 2">
+                                        <div class="col-12">
+                                            <h5 class="tabmain_title"><b>{{lang.v.insurances}}</b></h5>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="second_tabblock">
+                                                <ng-container *ngIf="app.current_lang == 'en' && app.record_validation(insurance_desc)">
+                                                    <div [innerHTML]="insurance_desc"></div>
+                                                </ng-container>
+            
+                                                <ng-container *ngIf="app.current_lang == 'no' && app.record_validation(insurance_desc_no)">
+                                                    <div [innerHTML]="insurance_desc_no"></div>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" *ngIf="activeTab == 3">
+                                        <div class="col-12">
+                                            <h5 class="tabmain_title"><b>{{lang.v.general_rental_conditions}}</b></h5>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="third_tabblock">
+                                                <ng-container *ngIf="item_result.item_vans == 1">
+                                                    <p class="rentalterms_see" (click)="openRentalTermsPDF()">{{lang.v.see_rental_terms}}</p>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>	
+                            </div>	
+                        </div>	
+                        
+                        <div class="review-sec specification-card" *ngIf="app.record_validation(itemtag_list)">
+                            <div class="review-header">
+                                <h4>{{lang.v.specifications}}</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="lisiting-featues specifications_features">
+                                    <div class="row">
+                                        <ng-container *ngFor="let itag of itemtag_list;let i = index">
+                                            <div class="featureslist d-flex align-items-center col-6 col-lg-3 col-md-4">
+                                                <div class="feature-img">
+                                                    <ng-container *ngIf="app.record_validation(itag.tag_image)">
+                                                        <img src="{{app.SOURCE_URL}}{{itag.tag_image}}" alt="tag_image">
+                                                    </ng-container>
+                                    
+                                                    <ng-container *ngIf="!app.record_validation(itag.tag_image)">
+                                                        <img src="assets/img/specification/specification-icon-1.svg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" width="30" height="30">
+                                                    </ng-container>
+                                                </div>
+                                                <div class="featues-info">
+                                                    <h6> 
+                                                        <ng-container *ngIf="app.current_lang == 'en'">
+                                                            {{itag.tag_name}}
+                                                        </ng-container>
+                    
+                                                        <ng-container *ngIf="app.current_lang == 'no'">
+                                                            {{itag.tag_name_no}}
+                                                        </ng-container>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>	
+                                </div>	
+                            </div>	
+                        </div>
+
+                        <ng-container *ngIf="readMore">
+
+                            <div class="review-sec listing-feature" *ngIf="app.record_validation(itemfeature_list)">
+                                <div class="review-header">
+                                    <h4>{{lang.v.features}}</h4>
+                                </div>
+                                <div class="listing-description">
+                                    <div class="row">
+
+                                        <div class="col-12 col-sm-6 col-md-4" *ngFor="let item of itemfeature_list">
+                                            <ul>
+                                                <li>
+                                                    <span>
+                                                        <i class={{item.feature_fontawesomeicon}}></i>
+                                                    </span>
+                                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                                        {{item.feature_name}}
+                                                    </ng-container>
+                
+                                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                                        {{item.feature_name_no}}
+                                                    </ng-container>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>							
+                        
+                            <div class="review-sec extra-service mb-0" *ngIf="app.record_validation(item_longdescription) || app.record_validation(item_longdescription_no)">
+                                <div class="review-header">
+                                    <h4>{{lang.v.description}}</h4>
+                                </div>
+                                <div class="description-list">
+                                    <ng-container *ngIf="app.current_lang == 'en'">
+                                        <div [innerHTML]="item_longdescription"></div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="app.current_lang == 'no'">
+                                        <div [innerHTML]="item_longdescription_no"></div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <div class="search-btn align_center">
+                            <button (click)="toggleReadMore()" class="btn btn-primary check-available w-50" type="button">
+                                <ng-container *ngIf="!readMore">
+                                    {{lang.v.read_more}} &nbsp;
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </ng-container>
+
+                                <ng-container *ngIf="readMore">
+                                    {{lang.v.read_less}} &nbsp;
+                                    <i class="fa-solid fa-chevron-up"></i>
+                                </ng-container>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 theiaStickySidebar">
+                        <div class="stickybar">
+                        <div class="review-sec mt-0">
+                            <div class="review-header">
+                                <h4>{{lang.v.check_availability}}</h4>
+                            </div>
+                            <div class="">		
+                                <form class="">
+                                    <ul>
+                                        <li class="column-group-last">
+                                            <div class="form-group mb-0">
+                                                <div class="search-btn">
+                                                    <button class="btn btn-primary check-available w-100" type="button">{{lang.v.check_price_and_book}}</button>
+                                                </div>
+
+                                                <div class="search-btn">
+                                                    <button class="btn btn-primary check-available enquiry-btn w-100" type="button" (click)="active_enquiryform = !active_enquiryform">
+                                                        {{lang.v.enquiry}}
+
+                                                        <ng-container *ngIf="!active_enquiryform">
+                                                           &nbsp; &nbsp; <i class="fa-solid fa-chevron-down"></i>
+                                                        </ng-container>
+                        
+                                                        <ng-container *ngIf="active_enquiryform">
+                                                            &nbsp; &nbsp; <i class="fa-solid fa-chevron-up"></i>
+                                                        </ng-container>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <ng-container *ngIf="active_enquiryform">
+                                            <li class="column-group-main">
+                                                <div class="form-group">
+                                                    <label>{{lang.v.name}} <span class="text-danger">*</span></label>												
+                                                    <div class="group-img">
+                                                        <input [(ngModel)]="name" name="name" for type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="column-group-main">
+                                                <div class="form-group">
+                                                    <label>{{lang.v.email_address}} <span class="text-danger">*</span></label>												
+                                                    <div class="group-img">
+                                                        <input [(ngModel)]="email" name="email"  type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="column-group-main">
+                                                <div class="form-group">
+                                                    <label>{{lang.v.phone_number}} <span class="text-danger">*</span></label>												
+                                                    <div class="group-img">
+                                                        <input [(ngModel)]="phone" name="phone" type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="column-group-main">
+                                                <div class="form-group">
+                                                    <label>{{lang.v.pickup_and_dropoff_location}}</label>												
+                                                    <div class="group-img">
+                                                        <input [readonly]="true" [(ngModel)]="pickupdropoff_location" name="pickup_location" type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="column-group-main">						
+                                                <div class="form-group m-0">																	
+                                                    <label>{{lang.v.pickup_date}} <span class="text-danger">*</span></label>
+                                                </div>
+                                                <div class="form-group-wrapp sidebar-form">
+                                                    <div class="form-group me-2 w-50">												
+                                                        <div class="group-img">
+                                                            <input [(ngModel)]="pickup_date" name="pickup_date" type="text" class="form-control datetimepicker" placeholder={{lang.v.date}} matInput [matDatepicker]="picker2">
+                                                            <mat-datepicker #picker2></mat-datepicker>
+                                                            <mat-datepicker-toggle matIconSuffix [for]="picker2" class="datepicker-icon-listing">
+                                                                <mat-icon matDatepickerToggleIcon>
+                                                                <span>
+                                                                    <i class="feather icon-calendar cus-icon-calender"></i>
+                                                                </span>
+                                                                </mat-icon>
+                                                            </mat-datepicker-toggle>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group w-49">											
+                                                        <div class="group-img">
+                                                            <input [(ngModel)]="pickup_time" name="pickup_time" type="text" class="form-control timepicker" placeholder={{lang.v.time}} [ngxTimepicker]="default1">
+                                                            <ngx-material-timepicker #default1></ngx-material-timepicker>
+                                                        </div>
+                                                    </div>
+                                                </div>	
+                                            </li>
+                                            <li class="column-group-main">						
+                                                <div class="form-group m-0">																	
+                                                    <label>{{lang.v.return_date}} <span class="text-danger">*</span></label>
+                                                </div>
+                                                <div class="form-group-wrapp sidebar-form">
+                                                    <div class="form-group me-2 w-50">												
+                                                        <div class="group-img">
+                                                            <input [(ngModel)]="return_date" name="return_date" type="text" class="form-control datetimepicker" placeholder={{lang.v.date}} matInput [matDatepicker]="picker1">
+                                                            <mat-datepicker #picker1></mat-datepicker>
+                                                            <mat-datepicker-toggle matIconSuffix [for]="picker1" class="datepicker-icon-listing">
+                                                                <mat-icon matDatepickerToggleIcon>
+                                                                <span>
+                                                                    <i class="feather icon-calendar cus-icon-calender"></i>
+                                                                </span>
+                                                                </mat-icon>
+                                                            </mat-datepicker-toggle>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group w-49">											
+                                                        <div class="group-img">
+                                                            <input [(ngModel)]="return_time" name="return_time" type="text" class="form-control timepicker" placeholder={{lang.v.time}} [ngxTimepicker]="default2">
+                                                            <ngx-material-timepicker #default2></ngx-material-timepicker>
+                                                        </div>
+                                                    </div>
+                                                </div>	
+                                            </li>
+
+                                            <li class="column-group-last">
+                                                <div class="form-group mb-0">
+                                                    <div class="search-btn mt-10">
+                                                        <button class="btn btn-primary check-available enquiry-btn w-100" type="button" (click)="submitform()">{{lang.v.send_enquiry}}</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ng-container>
+                                    </ul>
+                                </form>	
+                            </div>	
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </ng-container>

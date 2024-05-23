@@ -1,0 +1,284 @@
+.black {
+    color: black !important;
+}
+
+.form-info-area{
+    background-image: linear-gradient(rgba(0,0,0, .2),rgba(0,0,0, .4)),url(../../../../assets/img/moving/private_moving1.jpg) !important;
+    background: #f4f2f2;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-info-area .about-content h2{
+    color: #2B346B;
+    text-shadow: 1px 1px #b7bfed;
+}
+
+.form-info-area .about-content p{
+    color: white;
+    text-shadow: 1px 1px #111215;
+}
+
+
+.form-info-area .form_block {
+    border-radius: 10px;
+    padding: 20px;
+    background-image: linear-gradient(rgba(43, 52, 107), rgba(43, 52, 107, .8)) !important;
+}
+
+.formblock_title {
+    text-align: center;
+    color: #CF243F !important;
+    margin-bottom: 0px !important;
+}
+
+.formblock_subtitle {
+    font-size: 20px;
+    text-align: center;
+    color: white !important;
+    margin-bottom: 40px !important;
+}
+
+.segBtnBlock {
+    background: #dadada !important;
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 0px;
+    min-height: 48px;
+}
+
+.segBtn {
+    width: 50%;
+    min-height: 48px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #201F1D;
+    padding: 13px;
+}
+
+.segBtn i {
+    font-size: 17px;
+    color: #CF243F;
+    margin-right: 5px;
+}
+
+.segBtn1 {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.segBtn2 {
+    border-radius: 0px 5px 5px 5px;
+    border-left: 1px solid rgb(188, 188, 188);
+}
+
+.segBtnActive {
+    font-weight: bold;
+    background: white;
+    border-bottom: 3px solid #CF243F;
+    color: #CF243F !important;
+}
+
+.form-group label {
+    color: white;
+}
+
+.dateinput-group input {
+    padding-left: 50px !important;
+}
+
+.dateinput-group i {
+    position: relative;
+    top: -5px;
+}
+
+.lable_extratext {
+    font-size: 12px !important;
+    font-weight: normal !important;
+}
+
+.mat-mdc-radio-button~.radio_btn2 {
+    margin-left: 16px;
+}
+
+.radioform-control {
+    padding: 3.5px 13px !important;
+}
+
+::ng-deep .mdc-form-field>label {
+    margin: 0px !important;
+}
+
+.align_center {
+    text-align: center;
+}
+
+.contact-btn {
+    background: #CF243F !important;
+    margin-top: 10px;
+}
+
+.bottom_description {
+    color: white;
+    padding: 10px 30px;
+}
+
+.bottom_description a{
+    color: #CF243F !important;
+}
+
+.selectform-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 98.5% !important;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat calc(100% - 10px) !important;
+}
+
+.selectform-control::-ms-expand {
+    display: none;
+}
+
+.bullet{
+    font-size: 10px;
+    margin: 0px 2px;
+    color: #dadada;
+}
+
+.bullet_active{
+    color: #CF243F !important;
+}
+
+.tab_backBtn{
+    float: left;
+    color: white;
+}
+
+.form-extrainfogroup label{
+    font-size: 20px;
+}
+
+.form-extrainfogroup .form-control{
+    background: #f9c7cf !important;
+    border: none !important;
+}
+
+.custom_check span{
+    color: white;
+}
+
+.custom_check span a{
+    color: #CF243F;
+}
+
+.custom_check input:checked ~ .checkmark {
+    background-color: #CF243F;
+    border-color: #CF243F;
+}
+
+.movingcontent_block{
+    padding-top: 0px !important;
+}
+
+.moving-content {
+    text-align: justify;
+    margin: 0px !important;
+}
+
+.moving-content .moving-description{
+    color: black;
+}
+
+.checkbox_headtitle{
+    margin-top: 50px;
+}
+
+.checkbox_block{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 3px solid #2B346B;
+    margin: 10px;
+    padding: 10px;
+    min-height: 77px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+
+}
+
+.checkbox_block:hover{
+    border-bottom: 3px solid #CF243F;
+    i{
+        color: #CF243F !important;
+    }
+
+}
+
+.checkbox_block i{
+    font-size: 24px;
+    color: #2B346B;
+    margin: 0px 20px 0px 10px;
+}
+
+.checkbox_block p{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    margin: 0px 10px 0px 0px;
+    text-align: left;
+}
+
+@media (max-width: 550px) {
+    .checkbox_block{
+        width: calc(100% - 20px) !important;
+    }
+}
+
+@media (min-width: 551px) and (max-width: 767px) {
+    .checkbox_block{
+        width: calc(50% - 20px) !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .checkbox_block{
+        width: calc(33.33% - 20px) !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-info-area .form_block {
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .lgpright_0{
+        padding-right: 0px !important;
+    }
+
+    .form-info-area .about-content h2{
+        font-weight: 800 !important;
+        line-height: 60px !important;
+        margin-top: 50px !important;
+    }
+    
+    .form-info-area .about-content p{
+        font-size: 25px !important;
+        font-weight: 600 !important;
+    }  
+
+    .moving-content .moving-description{
+        font-size: 18px !important;
+    }
+
+    .checkbox_headtitle{
+        font-size: 25px !important;
+    }
+
+    .checkbox_block{
+        width: calc(25% - 20px);
+    }
+}

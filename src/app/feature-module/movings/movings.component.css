@@ -1,0 +1,98 @@
+
+.form-info-area .about-content h2{
+    color: #2B346B;
+    text-shadow: 1px 1px #b7bfed;
+}
+
+.form-info-area .about-content p{
+    color: white;
+    text-shadow: 1px 1px #111215;
+}
+
+.moving-content {
+    text-align: justify;
+    margin: 0px !important;
+}
+
+.moving-content .moving-description{
+    color: black;
+}
+
+.checkbox_headtitle{
+    margin-top: 50px;
+}
+
+.checkbox_block{
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 3px solid #2B346B;
+    margin: 10px;
+    padding: 10px;
+    min-height: 77px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+
+}
+
+.checkbox_block:hover{
+    border-bottom: 3px solid #CF243F;
+    i{
+        color: #CF243F !important;
+    }
+
+}
+
+.checkbox_block i{
+    font-size: 24px;
+    color: #2B346B;
+    margin: 0px 20px 0px 10px;
+}
+
+.checkbox_block p{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    margin: 0px 10px 0px 0px;
+    text-align: left;
+}
+
+@media (max-width: 550px) {
+    .checkbox_block{
+        width: calc(100% - 20px) !important;
+    }
+}
+
+.movingcontent_block{
+    padding-top: 0px !important;
+}
+
+@media (min-width: 992px) {
+    .lgpright_0{
+        padding-right: 0px !important;
+    }
+
+    .form-info-area .about-content h2{
+        font-weight: 800 !important;
+        line-height: 60px !important;
+        margin-top: 50px !important;
+    }
+    
+    .form-info-area .about-content p{
+        font-size: 25px !important;
+        font-weight: 600 !important;
+    }  
+
+    .moving-content .moving-description{
+        font-size: 18px !important;
+    }
+
+    .checkbox_headtitle{
+        font-size: 25px !important;
+    }
+
+    .checkbox_block{
+        width: calc(25% - 20px);
+    }
+}

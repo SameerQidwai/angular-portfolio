@@ -1,0 +1,774 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h1 class="breadcrumb-title">{{lang.v.moving_service}}</h1>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home">{{lang.v.home}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{lang.v.company_moving}}
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="contact-section" style="padding: 0px !important;">
+
+    <section class="section popular-services">
+        <div class="container">
+            <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h2>{{lang.v.company_moving}} <br>
+                                {{lang.v.company_moving_new_premises}}
+                            </h2>
+                            <p>{{lang.v.moving_offices_and_companies_description}}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="#" class="form_block">
+                            <div class="row">
+                                <h1 class="formblock_title">{{lang.v.get_an_offer_for_relocation_assistance}}</h1>
+                                <p class="formblock_subtitle">{{lang.v.the_service_is_free_and_non_binding}}</p>
+                            
+                                <div class="col-md-12"> 
+                                    <div class="form-group segBtnBlock">
+                                        <div class="segBtn segBtn1" routerLink="/movings/private-moving">
+                                            {{lang.v.private_moving}}
+                                        </div>
+
+                                        <div class="segBtn segBtn2 segBtnActive">
+                                            <i class="feather icon-check"></i>
+                                            {{lang.v.company_moving}}  
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ng-container *ngIf="current_form == 1">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group dateinput-group">
+                                            <label>{{lang.v.desired_moving_date}} <span class="text-danger">*</span></label>                                        
+                                            <div class="form-group-wrapp">
+                                                <div class="form-group date-widget">												
+                                                    <div class="group-img">
+                                                        <input [(ngModel)]="desiredmoving_date" name="desiredmoving_date" type="text" class="form-control datetimepicker" placeholder={{lang.v.choose_date}} matInput [matDatepicker]="picker1">
+                                                        <mat-datepicker #picker1></mat-datepicker>
+                                                        <mat-datepicker-toggle matIconSuffix [for]="picker1" class="datepicker-icon">
+                                                            <mat-icon matDatepickerToggleIcon>
+                                                                <span>
+                                                                    <i class="feather icon-calendar cus-icon-calender"></i>
+                                                                </span>
+                                                            </mat-icon>
+                                                        </mat-datepicker-toggle>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.is_the_moving_date_flexible}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.can_the_move_take_place_on_other_dates}}</p>
+                                            </label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="ismoving_dateflexible" name="ismoving_dateflexible">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" *ngIf="ismoving_dateflexible == 'yes'"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.flexible_moving_date}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.indicate_how_flexible_you_are_based_moving_date}}</p>
+                                            </label>
+
+                                            <select [(ngModel)]="flexiblemoving_date" name="flexiblemoving_date" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value={{lang.v._1_day}}>+- {{lang.v._1_day}}</option>
+                                                <option value={{lang.v._2_days}}>+- {{lang.v._2_days}}</option>
+                                                <option value={{lang.v._3_days}}>+- {{lang.v._3_days}}</option>
+                                                <option value={{lang.v._4_days}}>+- {{lang.v._4_days}}</option>
+                                                <option value={{lang.v._5_days}}>+- {{lang.v._5_days}}</option>
+                                                <option value={{lang.v._6_days}}>+- {{lang.v._6_days}}</option>
+                                                <option value={{lang.v._1_week}}>+- {{lang.v._1_week}}</option>
+                                                <option value={{lang.v._2_weeks}}>+- {{lang.v._2_weeks}}</option>
+                                                <option value={{lang.v._3_weeks}}>+- {{lang.v._3_weeks}}</option>
+                                                <option value={{lang.v._1_month}}>+- {{lang.v._1_month}}</option>
+                                                <option value={{lang.v.more_than_1_month}}>+- {{lang.v.more_than_1_month}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.moving_agency_to_pack_your_inventory}} <span class="text-danger">*</span> </label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="movingagency_packinventory" name="movingagency_packinventory">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.do_the_objects_have_to_be_stored}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="haveobjectsstoredbetween_movingoutin" name="haveobjectsstoredbetween_movingoutin">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.do_you_want_your_current_premises_cleaned}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="washyour_currentpremises" name="washyour_currentpremises">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(1)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>
+                                            
+                                            <div>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 0}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 2">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.do_you_want_to_insure_the_moving_load}} <span class="text-danger">*</span> </label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="insuremoving_load" name="insuremoving_load">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" *ngIf="insuremoving_load == 'yes'">
+                                        <div class="form-group">
+                                            <label>{{lang.v.approx_insurance_value_optional}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="approx_insurancevalue" name="approx_insurancevalue" type="text" class="form-control" placeholder="DKK 5000,00">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.approximately_how_big_is_moving_load}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="size_movingload" name="size_movingload" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value={{lang.v.fills_a_trunk}}> {{lang.v.fills_a_trunk}}</option>
+                                                <option value={{lang.v.fills_a_small_trailer}}> {{lang.v.fills_a_small_trailer}}</option>
+                                                <option value={{lang.v.fills_a_large_trailer}}> {{lang.v.fills_a_large_trailer}}</option>
+                                                <option value={{lang.v.filling_a_van}}> {{lang.v.filling_a_van}}</option>
+                                                <option value={{lang.v.fills_a_small_truck}}> {{lang.v.fills_a_small_truck}}</option>
+                                                <option value={{lang.v.fills_a_large_truck}}> {{lang.v.fills_a_large_truck}}</option>
+                                                <option value={{lang.v.fills_a_large_truck_with_trailer}}> {{lang.v.fills_a_large_truck_with_trailer}}</option>
+                                                <option value={{lang.v.otheruncertain}}> {{lang.v.otheruncertain}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(2)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(1)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 1}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 3">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group form-extrainfogroup">
+                                            <label>{{lang.v.current_address}}</label>
+
+                                            <div class="form-control">
+                                                {{lang.v.information_about_their_current_premises}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8 lgpright_0"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.current_address}}? <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="current_address" name="current_address" type="text" class="form-control" placeholder="Gateadresse 1">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.street_no}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="street_no" name="street_no" type="text" class="form-control" placeholder="1A">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.postal_code}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="postal_code" name="postal_code" type="number" class="form-control" placeholder="1234">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.size_of_the_room}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="size_room" name="size_room" type="number" class="form-control" placeholder="120 kvm">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.how_many_floors_do_you_have}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="floors_number" name="floors_number" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5+">5+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.number_of_employees}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="numberof_employee" name="numberof_employee" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value="1-5">1-5</option>
+                                                <option value="6-20">6-20</option>
+                                                <option value="21-50">21-50</option>
+                                                <option value="51-100">51-100</option>
+                                                <option value="100+">100+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(3)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(2)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 2}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 4">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group form-extrainfogroup">
+                                            <label>{{lang.v.current_address}}</label>
+
+                                            <div class="form-control">
+                                                {{lang.v.information_about_their_current_premises}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.which_floor_entrance}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="onwhichfloor_entrance" name="onwhichfloor_entrance" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value={{lang.v.all_floors_have_their_own_entrance}}> {{lang.v.all_floors_have_their_own_entrance}}</option>
+                                                <option value={{lang.v.basement_entrance}}> {{lang.v.basement_entrance}}</option>
+                                                <option value={{lang.v.living_room_plan}}> {{lang.v.living_room_plan}}</option>
+                                                <option value={{lang.v.first_floor}}> {{lang.v.first_floor}}</option>
+                                                <option value={{lang.v.second_floor}}> {{lang.v.second_floor}}</option>
+                                                <option value={{lang.v.third_floor}}> {{lang.v.third_floor}}</option>
+                                                <option value={{lang.v.fourth_floor}}> {{lang.v.fourth_floor}}</option>
+                                                <option value={{lang.v.fifth_floor}}> {{lang.v.fifth_floor}}</option>
+                                                <option value={{lang.v.sixth_floor}}> {{lang.v.sixth_floor}}</option>
+                                                <option value={{lang.v.seventh_floor}}> {{lang.v.seventh_floor}}</option>
+                                                <option value={{lang.v.eighth_floor}}> {{lang.v.eighth_floor}}</option>
+                                                <option value={{lang.v.ninth_floor}}> {{lang.v.ninth_floor}}</option>
+                                                <option value={{lang.v.tenth_or_higher}}> {{lang.v.tenth_or_higher}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.is_there_a_lift_in_the_building}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="lift_inbuilding" name="lift_inbuilding">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.is_there_a_goods_reception_in_the_building}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="isgoodsreception_inbuilding" name="isgoodsreception_inbuilding">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.distance_to_parking}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.nearest_point_removal_truck}}</p>
+                                            </label>
+                                            <input [(ngModel)]="distanceto_parking" name="distanceto_parking" type="number" class="form-control" placeholder="20 meter">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(4)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(3)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 3}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 5">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group form-extrainfogroup">
+                                            <label>{{lang.v.new_adress}}</label>
+
+                                            <div class="form-control">
+                                                {{lang.v.information_about_your_new_address}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8 lgpright_0"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.new_adress}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="new_address" name="new_address" type="text" class="form-control" placeholder="Gateadresse 1">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.street_no}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="street_no2" name="street_no2" type="text" class="form-control" placeholder="1A">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.postal_code}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="postal_code2" name="postal_code2" type="number" class="form-control" placeholder="1234">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.size_of_the_room}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="size_room2" name="size_room2" type="number" class="form-control" placeholder="120 kvm">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.how_many_floors_do_you_have}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="floors_number2" name="floors_number2" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5+">5+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(5)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(4)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 4}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 6">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group form-extrainfogroup">
+                                            <label>{{lang.v.new_adress}}</label>
+
+                                            <div class="form-control">
+                                                {{lang.v.information_about_your_new_address}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.which_floor_entrance}} <span class="text-danger">*</span></label>
+
+                                            <select [(ngModel)]="onwhichfloor_entrance2" name="onwhichfloor_entrance2" class="form-control selectform-control">
+                                                <option hidden value="" disabled selected> {{lang.v.select}} </option>
+                                                <option value={{lang.v.all_floors_have_their_own_entrance}}> {{lang.v.all_floors_have_their_own_entrance}}</option>
+                                                <option value={{lang.v.basement_entrance}}> {{lang.v.basement_entrance}}</option>
+                                                <option value={{lang.v.living_room_plan}}> {{lang.v.living_room_plan}}</option>
+                                                <option value={{lang.v.first_floor}}> {{lang.v.first_floor}}</option>
+                                                <option value={{lang.v.second_floor}}> {{lang.v.second_floor}}</option>
+                                                <option value={{lang.v.third_floor}}> {{lang.v.third_floor}}</option>
+                                                <option value={{lang.v.fourth_floor}}> {{lang.v.fourth_floor}}</option>
+                                                <option value={{lang.v.fifth_floor}}> {{lang.v.fifth_floor}}</option>
+                                                <option value={{lang.v.sixth_floor}}> {{lang.v.sixth_floor}}</option>
+                                                <option value={{lang.v.seventh_floor}}> {{lang.v.seventh_floor}}</option>
+                                                <option value={{lang.v.eighth_floor}}> {{lang.v.eighth_floor}}</option>
+                                                <option value={{lang.v.ninth_floor}}> {{lang.v.ninth_floor}}</option>
+                                                <option value={{lang.v.tenth_or_higher}}> {{lang.v.tenth_or_higher}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.is_there_a_lift_in_the_building}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="lift_inbuilding2" name="lift_inbuilding2">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.is_there_a_goods_reception_in_the_building}} <span class="text-danger">*</span></label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="isgoodsreception_inbuilding2" name="isgoodsreception_inbuilding2">
+                                                    <mat-radio-button value="yes">Ja</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">Nei</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.distance_to_parking}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.nearest_point_removal_truck}}</p>
+                                            </label>
+                                            <input [(ngModel)]="distanceto_parking2" name="distance_to_parking2" type="number" class="form-control" placeholder="20 meter">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(6)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(5)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 5}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 7">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label> {{lang.v.are_you_going_to_move_heavy_objects}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.moving_heavy_objects_description}}</p>
+                                            </label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="moving_heavyobjects" name="moving_heavyobjects">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" *ngIf="moving_heavyobjects == 'yes'"> 
+                                        <div class="form-group">
+                                            <textarea [(ngModel)]="moving_heavyobjectsinput" name="moving_heavyobjectsinput" class="form-control" rows="4" cols="50" placeholder={{lang.v.which_heavy_objects_are_to_be_moved}}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.are_you_moving_fragile_or_valuable_items}} <span class="text-danger">*</span>
+                                                <p class="lable_extratext">{{lang.v.moving_fragile_description}}</p>
+                                            </label>
+
+                                            <div class="form-control radioform-control">
+                                                <mat-radio-group [(ngModel)]="movingfragile_valuableitems" name="movingfragile_valuableitems">
+                                                    <mat-radio-button value="yes">{{lang.v.yes}}</mat-radio-button>
+                                                    <mat-radio-button class="radio_btn2" value="no">{{lang.v.no}}</mat-radio-button>
+                                                </mat-radio-group>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" *ngIf="movingfragile_valuableitems == 'yes'"> 
+                                        <div class="form-group">
+                                            <textarea [(ngModel)]="movingfragile_valuableitemsinput" name="movingfragile_valuableitemsinput" class="form-control" rows="4" cols="50" placeholder={{lang.v.which_fragile_or_valuable_items_should_be_moved}}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(7)">{{lang.v.move_on}}</button>	
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.your_privacy_is_safeguarded_description}}
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(6)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 6}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngIf="current_form == 8">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.additional_information}} <span class="text-danger">*</span></label>
+                                            <textarea [(ngModel)]="additional_information" name="additional_information" class="form-control" rows="4" cols="50" placeholder={{lang.v.other_relevant_information}}></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.company}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="company" name="company" type="text" class="form-control" placeholder="Selskap AS">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.contact_person}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="contact_person" name="contact_person" type="text" class="form-control" placeholder="Ola Nordmann">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.email}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="navn@domene.no">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label>{{lang.v.telephone}} <span class="text-danger">*</span></label>
+                                            <input [(ngModel)]="telephone" name="telephone" type="number" class="form-control" placeholder="12345678">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="form-group m-0">
+                                            <label class="custom_check d-inline-flex">
+                                                <span>{{lang.v.i_accept_the_terms_of_use}}</span>
+                                                <input [(ngModel)]="terms_condition" name="terms_condition" type="checkbox" name="remeber" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12"> 
+                                        <div class="align_center">
+                                            <button class="btn contact-btn w-50" type="button" (click)="submitform(8)">{{lang.v.get_a_non_binding_offer}}</button>	
+                                            
+                                            <p class="bottom_description"> 
+                                                <i class="feather icon-lock"></i>
+                                                {{lang.v.press_the_button_to_consent_to_the_personal}}
+                                                <a class="black" href="mailto:post@flyttom.no">post@flyttom.no</a>
+                                            </p>	
+
+                                            <div>
+                                                <span class="tab_backBtn" (click)="changeTab(7)">
+                                                    <i class="fa fa-angle-left"></i>
+                                                    {{lang.v.back}}
+                                                </span>
+                                                <ng-container *ngFor="let item of [].constructor(8); let i = index">
+                                                    <i class="fa-solid fa-circle bullet" 
+                                                        [ngClass]="{'bullet_active': i == 7}">
+                                                    </i>
+                                                </ng-container>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </ng-container>
+                            </div>	
+                        </form>
+                    </div>
+                </div>
+            </div>	
+        </div>
+    </section>
+
+
+    <section class="section popular-services movingcontent_block">
+        <div class="section-heading"  data-aos="fade-down">
+            <h2>
+                {{lang.v.company_moving}}
+            </h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content moving-content">
+                        <p class="moving-description">
+                            {{lang.v.preparing_an_implementation_plan}}
+                        </p>
+  
+                        <div class="section-heading">
+                           <h2 class="checkbox_headtitle">{{lang.v.company_moving_assignment}}</h2>
+                        </div>
+            
+                        <div class="row">
+                          <div class="col-md-6 col-lg-3 checkbox_block">
+                              <i class="fas fa-check-circle"></i>
+                              <p>{{lang.v.fixed_price_after_inspection_or_an_hourly}}</p>
+                          </div>
+                          <div class="col-md-6 col-lg-3 checkbox_block">
+                              <i class="fas fa-check-circle"></i>
+                              <p>{{lang.v.dismantle_furniture_and_reassemble}}</p>
+                          </div>
+                          <div class="col-md-6 col-lg-3 checkbox_block">
+                              <i class="fas fa-check-circle"></i>
+                              <p>{{lang.v.inventory_is_packed_safely}}</p>
+                          </div>
+                          <div class="col-md-6 col-lg-3 checkbox_block">
+                              <i class="fas fa-check-circle"></i>
+                              <p>{{lang.v.safe_and_secure_transport}}</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>

@@ -1,0 +1,135 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h1 class="breadcrumb-title">{{lang.v.rental}}</h1>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home">{{lang.v.home}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{lang.v.longterm_rent}}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="contact-section" style="padding: 0px !important;">
+
+    <section class="section popular-services">
+        <div class="container">
+            <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h2>{{lang.v.do_you_need_a_car_for_one_month}}</h2>
+                            <p>{{lang.v.then_long_term_rental_can_be_a_brilliant}}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="#" class="form_block">
+                            <div class="row">
+                                <h1 class="formblock_title">{{lang.v.get_in_touch}}</h1>
+                               
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label>{{lang.v.rental_duration}}<span class="text-danger">*</span></label>
+                                        <select [(ngModel)]="rental_duration" name="rental_duration" class="form-control selectform-control">
+                                            <option hidden value="" disabled selected>{{lang.v.select}}</option>
+                                            <option value={{lang.v.monthly}}>{{lang.v.monthly}}</option>
+                                            <option value={{lang.v._6months}}>{{lang.v._6months}}</option>
+                                            <option value={{lang.v.yearly}}>{{lang.v.yearly}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label>{{lang.v.name}} <span class="text-danger">*</span></label>
+                                        <input [(ngModel)]="name" name="name" type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label>{{lang.v.email_address}} <span class="text-danger">*</span></label>
+                                        <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label>{{lang.v.phone_number}} <span class="text-danger">*</span></label>
+                                        <input  [(ngModel)]="phone" name="phone" type="number" class="form-control" placeholder="">
+                                    </div>
+                                </div>							
+                                <div class="col-md-12"> 
+                                    <div class="form-group">
+                                        <label>{{lang.v.comments}} <span class="text-danger">*</span></label>
+                                        <textarea [(ngModel)]="comments" name="comments" class="form-control" rows="4" cols="50" placeholder=""></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <div class="align_center">
+                                        <button (click)="submitform()" class="btn contact-btn w-50" type="button">{{lang.v.send_enquiry}}</button>	
+                                    </div>
+                                </div>
+                            </div>	
+                        </form>
+                    </div>
+                </div>
+            </div>	
+        </div>
+    </section>
+
+    <section class="section popular-services movingcontent_block">
+        <div class="section-heading"  data-aos="fade-down">
+            <h2>{{lang.v.long_term_rental}}</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content moving-content">
+                      <p class="moving-description">
+                        {{lang.v.long_term_rental_description}}<br> <br>
+                      </p>
+
+                      <div class="section-heading">
+                         <h2 class="checkbox_headtitle">{{lang.v.what_are_the_advantages_of_renting_a_car}}</h2>
+                      </div>
+          
+                      <div class="row">
+                        <div class="col-md-6 col-lg-4 checkbox_block">
+                            <i class="fas fa-check-circle"></i>
+                            <p>{{lang.v.long_term_rental_advantage_1}}</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 checkbox_block">
+                            <i class="fas fa-check-circle"></i>
+                            <p>{{lang.v.long_term_rental_advantage_2}}</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 checkbox_block">
+                            <i class="fas fa-check-circle"></i>
+                            <p>{{lang.v.long_term_rental_advantage_3}}</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 checkbox_block">
+                            <i class="fas fa-check-circle"></i>
+                            <p>{{lang.v.long_term_rental_advantage_4}}</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 checkbox_block">
+                            <i class="fas fa-check-circle"></i>
+                            <p>{{lang.v.long_term_rental_advantage_5}}</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+
+

@@ -1,0 +1,416 @@
+		<!-- Breadscrumb Section -->
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row align-items-center text-center">
+		    		<div class="col-md-12 col-12">
+			    	    <h1 class="breadcrumb-title">{{lang.v.rental}}</h1>
+				    	<nav aria-label="breadcrumb" class="page-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a [routerLink]="routes.home">{{lang.v.home}}</a></li>
+								<li class="breadcrumb-item active" aria-current="page">
+									{{lang.v.all_vehicles}}
+								</li>
+							</ol>
+						</nav>							
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadscrumb Section -->
+
+		<div class="sortby-sec">
+			<div class="container">
+				<div class="sorting-div">
+					<div class="row d-flex align-items-center">
+						<div class="col-xl-4 col-lg-3 col-sm-12 col-12">
+							<div class="count-search">
+								<p class="black">{{lang.v.showing_1_15_results}}</p>
+							</div>
+						</div>
+						<div class="col-xl-8 col-lg-9 col-sm-12 col-12">
+							<div class="product-filter-group">
+								<div class="sortbyset">
+									<span class="sortbytitle black">{{lang.v.show}} : </span>
+									<div class="sorting-select select-two">
+										<mat-select [(ngModel)]="order_by" [ngModelOptions]="{standalone: true}" class="form-control select"  placeholder={{lang.v.order_by}} (selectionChange)="change_orderby()">
+											<mat-option *ngFor="let data of orderby_list" [value]="data.id">
+											{{data.value}}
+											</mat-option>
+										</mat-select>
+									</div>
+									<div class="sorting-select select-three">
+										<mat-select [(ngModel)]="onlypopularitem" [ngModelOptions]="{standalone: true}" class="form-control select"  placeholder={{lang.v.all}} (selectionChange)="change_popular()">
+											<mat-option *ngFor="let data of popular_list" [value]="data.id">
+											{{data.value}}
+											</mat-option>
+										</mat-select>
+									</div>
+								</div>
+								<div class="grid-listview">
+									<ul>
+										<li>
+											<a (click)="toggle_listingstyle(1)" [ngClass]="{'active': active_listingstyle == true}">
+												<i class="feather icon-grid"></i>
+											</a>
+										</li>
+										<li>
+											<a (click)="toggle_listingstyle(2)" [ngClass]="{'active': active_listingstyle == false}">
+												<i class="feather icon-list"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Car Grid View -->
+		<section class="section car-listing">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-4 col-sm-12 col-12 theiaStickySidebar">
+						<div class="stickybar">
+							<div class="sidebar-form">
+								<!-- Customer -->
+								<div class="sidebar-heading">
+									<h3>{{lang.v.what_are_you_looking_for}}</h3>
+								</div>
+								<div class="product-search">								
+									<div class="form-custom">														
+										<input type="text" [(ngModel)]="search" (keyup.enter)="call_search()" class="form-control" placeholder="">
+										<span><img src="assets/img/icons/search.svg" alt="search" title="search" (click)="call_search()"></span>
+									</div>
+								</div>
+		
+								<!-- <ngx-slider [(value)]="slidevalue" [options]="options"></ngx-slider> -->
+							
+								<div class="accordion" id="accordionMain1">
+									<div class="card-header-new" id="headingOne">
+										<h6 class="filter-title">
+											<a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												{{lang.v.vehicles_type}} 	
+												<span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+											</a> 
+										</h6>
+									</div>
+									<div id="collapseOne" class="collapse" aria-labelledby="headingOne"  data-bs-parent="#accordionExample1">
+										<div class="card-body-chat">
+											<div class="row">
+												<div class="col-md-12">
+													<div id="checkBoxes1">
+														<div class="selectBox-cont">
+															<label class="custom_check w-100">
+																<input type="checkbox" [(ngModel)]="item_personalcar" name="item_personalcar">
+																<span class="checkmark"></span>  {{lang.v.personal_car}}
+															</label>
+															<label class="custom_check w-100">
+																<input type="checkbox" [(ngModel)]="item_electriccar" name="item_electriccar">
+																<span class="checkmark"></span>  {{lang.v.electric_cars}}
+															</label>
+															<label class="custom_check w-100">
+																<input type="checkbox" [(ngModel)]="item_vans" name="item_vans">
+																<span class="checkmark"></span>  {{lang.v.vans}}
+															</label>
+															<!-- <label class="custom_check w-100">
+																<input type="checkbox" [(ngModel)]="item_cars" name="item_cars">
+																<span class="checkmark"></span> {{lang.v.cars}}
+															</label> -->
+															<!-- View All -->
+															<div class="view-content">
+															<div class="viewall-One">	
+																<!-- <label class="custom_check w-100">
+																	<input type="checkbox" [(ngModel)]="item_truck" name="item_truck">
+																	<span class="checkmark"></span> {{lang.v.trucks}}
+																</label> -->
+																<label class="custom_check w-100">
+																	<input type="checkbox" [(ngModel)]="item_hybrid" name="item_hybrid">
+																	<span class="checkmark"></span> {{lang.v.hybrids}}
+																</label>
+															</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="accordion" id="accordionMain2">
+									<div class="card-header-new" id="headingTwo">
+										<h6 class="filter-title">
+											<a href="javascript:void(1);" class="w-100 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+												{{lang.v.vehicles_brand}}
+												<span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+											</a> 
+										</h6>
+									</div>
+									<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"  data-bs-parent="#accordionExample2">
+										<div class="card-body-chat">
+											<div id="checkBoxes2">
+												<div class="selectBox-cont" *ngIf="app.record_validation(manufacturer_list)">
+													<ng-container  *ngFor="let item of manufacturer_list; let i = index">
+														<label class="custom_check w-100">
+															<input type="checkbox" [value]="item.status" name="item.status" (click)="call_manufacturefilter(i,item.status)">
+															<span class="checkmark"></span>  
+															<ng-container *ngIf="app.current_lang == 'en'">
+																{{item.manufacturer_name}}
+															</ng-container>
+						
+															<ng-container *ngIf="app.current_lang == 'no'">
+																{{item.manufacturer_name_no}}
+															</ng-container>
+														</label>
+													</ng-container>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+		
+								<button (click)="call_filteritem()" type="submit" class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn">
+									<span><i class="feather icon-filter me-2"></i></span>{{lang.v.filter_results}}
+								</button>
+								<a (click)="call_resetfilter()" class="reset-filter">{{lang.v.reset_filter}}</a>
+							</div>
+						</div>
+				 	</div>
+
+					 <div class="col-xl-9 col-lg-8 col-sm-12 col-12" *ngIf="active_listingstyle">
+						<div class="row" *ngIf="app.record_validation(item_list)">
+							<!-- col -->
+							<div class="col-xl-6 col-lg-6 col-md-6 col-12" *ngFor="let item of item_list | paginate: {itemsPerPage: per_page,currentPage: pagenumber,totalItems: total_page};let i = index">
+								<div class="listing-item">										
+									<div [routerLink]="routes.listingDetails+'/'+item.item_id" class="listing-img caritem_bg" style="background: url({{app.SOURCE_URL}}{{item.item_image}}) 0 0/100% 100%;">
+										<div class="fav-item" *ngIf="app.record_validation(item.item_code)">
+											<span class="featured-text">{{item.item_code}}</span>									
+										</div>	
+									</div>										
+									<div class="listing-content">
+										<div class="listing-features">
+											<a href="javascript:void(0)" class="author-img" *ngIf="app.record_validation(item.vsize)">
+												<div class="listing_size">
+													<p>
+														<ng-container *ngIf="app.current_lang == 'en' && app.record_validation(item.vsize.vsize_name)">
+															{{item.vsize.vsize_name}}
+														</ng-container>
+					
+														<ng-container *ngIf="app.current_lang == 'no' && app.record_validation(item.vsize.vsize_name_no)">
+															{{item.vsize.vsize_name_no}}
+														</ng-container>
+													</p>
+												</div>
+											</a>
+											<h3 class="listing-title">
+												<a [routerLink]="routes.listingDetails+'/'+item.item_id">
+													<ng-container *ngIf="app.current_lang == 'en'">
+														{{item.item_name}}
+													</ng-container>
+				
+													<ng-container *ngIf="app.current_lang == 'no'">
+														{{item.item_name_no}}
+													</ng-container>
+												</a>
+											</h3>																	  
+										</div> 
+										<div class="listing-details-group">
+											<ul>
+												<ng-container *ngFor="let itag of item.itemtag_list;let index = index">
+													<li *ngIf="index <= 2 && app.record_validation(itag.tag)">
+														<span>
+															<ng-container *ngIf="app.record_validation(itag.tag.tag_image)">
+																<img src="{{app.SOURCE_URL}}{{itag.tag.tag_image}}" alt="{{itag.tag.tag_name_no}}" title="{{itag.tag.tag_name_no}}">
+															</ng-container>
+											
+															<ng-container *ngIf="!app.record_validation(itag.tag.tag_image)">
+																<img src="assets/img/icons/car-parts-01.svg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" />
+															</ng-container>
+														</span>
+														<p>
+															<ng-container *ngIf="app.current_lang == 'en'">
+																{{itag.tag.tag_name}}
+															</ng-container>
+						
+															<ng-container *ngIf="app.current_lang == 'no'">
+																{{itag.tag.tag_name_no}}
+															</ng-container>
+														</p>
+													</li>
+												</ng-container>
+											</ul>
+	
+											<ul>
+												<ng-container *ngFor="let itag of item.itemtag_list;let indxe = index">
+	
+													<li *ngIf="item.itemtag_list.length < 3" style="height: 22.5px;"></li>
+	
+													<li *ngIf="indxe >= 3 && indxe <= 5 && app.record_validation(itag.tag)">
+														<span>
+															<ng-container *ngIf="app.record_validation(itag.tag.tag_image)">
+																<img src="{{app.SOURCE_URL}}{{itag.tag.tag_image}}" alt="{{itag.tag.tag_name_no}}" title="{{itag.tag.tag_name_no}}"/>
+															</ng-container>
+											
+															<ng-container *ngIf="!app.record_validation(itag.tag.tag_image)">
+																<img src="assets/img/icons/car-parts-01.svg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" >
+															</ng-container>
+														</span>
+														<p>
+															<ng-container *ngIf="app.current_lang == 'en'">
+																{{itag.tag.tag_name}}
+															</ng-container>
+						
+															<ng-container *ngIf="app.current_lang == 'no'">
+																{{itag.tag.tag_name_no}}
+															</ng-container>
+														</p>
+													</li>
+												</ng-container>
+											</ul>
+										</div>		
+										<div class="listing-location-details">
+											<div class="listing-price">
+												<h3><span class="from_time">{{lang.v.from}}</span> {{item.item_rate | number: '1.0-0'}} <span class="from_time">/ {{lang.v.day}}</span></h3>
+											</div>
+										</div>
+										<div class="listing-button">
+											<a [routerLink]="routes.listingDetails+'/'+item.item_id" class="btn btn-order"><span><i class="feather icon-calendar me-2"></i></span>{{lang.v.rent_now}}</a>
+										</div>														 
+									</div>
+								</div>		 
+							</div>
+							<!-- /col -->
+						</div>	
+						<!--Pagination--> 
+						<div class="blog-pagination">
+							<nav>
+								<ul class="pagination page-item justify-content-center">
+									<pagination-controls
+										previousLabel={{lang.v.prev}}
+										nextLabel={{lang.v.next}}
+										(pageChange)="pageDataChange($event)">
+									</pagination-controls>
+								</ul>
+							</nav>
+						</div>
+						<!--/Pagination-->
+		
+					</div>
+
+					<div class="col-xl-9 col-lg-8 col-sm-12 col-12" *ngIf="!active_listingstyle">
+						<div class="row" *ngIf="app.record_validation(item_list)">
+                            <div class="listview-car" *ngFor="let item of item_list | paginate: {itemsPerPage: per_page,currentPage: pagenumber,totalItems: total_page};let i = index">
+                                <div class="card">
+                                    <div class="blog-widget d-flex">
+                                        <div class="blog-img">
+                                            <a [routerLink]="routes.listingDetails+'/'+item.item_id">
+												<ng-container *ngIf="app.record_validation(item.item_image)">
+													<img class="listview-img" src="{{app.SOURCE_URL}}{{item.item_image}}" alt="{{item.item_name_no}}" title="{{item.item_name_no}}" >
+												</ng-container>
+								
+												<ng-container *ngIf="!app.record_validation(item.item_image)">
+													<img class="listview-img" src="assets/img/cars/car-08.jpg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" >
+												</ng-container>
+											</a>														    
+                                        </div>
+                                        <div class="bloglist-content w-100">
+                                           <div class="card-body">
+                                                <div class="blog-list-head d-flex">
+                                                    <div class="blog-list-title">
+                                                        <h3>
+															<a [routerLink]="routes.listingDetails+'/'+item.item_id">
+																<ng-container *ngIf="app.current_lang == 'en'">
+																	{{item.item_name}}
+																</ng-container>
+							
+																<ng-container *ngIf="app.current_lang == 'no'">
+																	{{item.item_name_no}}
+																</ng-container>
+															</a>
+														</h3>
+                                                    </div>
+                                                    <div class="blog-list-rate">
+														<h3 class="car_price"><span class="from_time">{{lang.v.from}}</span> kr {{item.item_rate | number: '1.0-0'}} <span class="from_time">/ {{lang.v.day}}</span></h3>
+                                                    </div>
+                                                </div>	
+                                                <div class="listing-details-group">
+                                                    <ul>
+														<ng-container *ngFor="let itag of item.itemtag_list;let index = index">
+															<li *ngIf="index <= 5 && app.record_validation(itag.tag)">
+																<span>
+																	<ng-container *ngIf="app.record_validation(itag.tag.tag_image)">
+																		<img src="{{app.SOURCE_URL}}{{itag.tag.tag_image}}"  alt="{{itag.tag.tag_name_no}}" title="{{itag.tag.tag_name_no}}">
+																	</ng-container>
+													
+																	<ng-container *ngIf="!app.record_validation(itag.tag.tag_image)">
+																		<img src="assets/img/icons/car-parts-01.svg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" >
+																	</ng-container>
+																</span>
+																<p class="black">
+																	<ng-container *ngIf="app.current_lang == 'en'">
+																		{{itag.tag.tag_name}}
+																	</ng-container>
+								
+																	<ng-container *ngIf="app.current_lang == 'no'">
+																		{{itag.tag.tag_name_no}}
+																	</ng-container>
+																</p>
+															</li>	
+														</ng-container>	
+                                                    </ul>
+                                                </div>	
+                                                <div class="blog-list-head list-head-bottom d-flex">
+                                                    <div class="blog-list-title">
+                                                        <div class="title-bottom">
+                                                            <div class="car-list-icon">
+																<ng-container *ngIf="app.record_validation(item.item_image)">
+																	<img src="{{app.SOURCE_URL}}{{item.item_image}}" alt="{{item.item_name_no}}" title="{{item.item_name_no}}">
+																</ng-container>
+												
+																<ng-container *ngIf="!app.record_validation(item.item_image)">
+																	<img src="assets/img/cars/car-08.jpg" alt="{{lang.v.rental}}" title="{{lang.v.rental}}" >
+																</ng-container>
+                                                            </div>
+                                                            <div class="address-info">
+                                                                <h5 class="black"><a *ngIf="app.record_validation(item.item_code)">{{item.item_code}}</a></h5>
+                                                                <h6 class="black" *ngIf="app.record_validation(item.vsize)">
+																	<ng-container *ngIf="app.current_lang == 'en' && app.record_validation(item.vsize.vsize_name)">
+																		{{item.vsize.vsize_name}}
+																	</ng-container>
+								
+																	<ng-container *ngIf="app.current_lang == 'no' && app.record_validation(item.vsize.vsize_name_no)">
+																		{{item.vsize.vsize_name_no}}
+																	</ng-container>
+																</h6>
+                                                            </div>
+                                                        </div>	
+                                                    </div>
+                                                    <div class="listing-button">
+                                                        <a [routerLink]="routes.listingDetails+'/'+item.item_id" type="sumit" class="btn btn-order"><span><i class="feather icon-calendar me-2"></i></span>{{lang.v.rent_now}}</a>
+                                                    </div>
+                                                </div>	
+                                            </div>					 
+                                        </div>			 
+                                    </div> 
+                                </div>
+							</div>                           
+                        </div>
+						<!--Pagination--> 
+						<div class="blog-pagination">
+							<nav>
+								<ul class="pagination page-item justify-content-center">
+									<pagination-controls
+										previousLabel={{lang.v.prev}}
+										nextLabel={{lang.v.next}}
+										(pageChange)="pageDataChange($event)">
+									</pagination-controls>
+								</ul>
+							</nav>
+						</div>
+						<!--/Pagination-->
+					</div>
+				</div>		
+		  	</div>	
+		</section>	
+		<!-- /Car Grid View -->	

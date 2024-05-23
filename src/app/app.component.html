@@ -1,0 +1,55 @@
+<router-outlet></router-outlet>
+
+
+<!-- loading -->
+<div class="loading-overlay" *ngIf="loadingService.isLoading | async">
+    <div class="spinner"></div>
+</div>
+
+
+<!-- Error Modal -->
+<!-- <div *ngIf="alertMessage" class="alert">
+    {{ alertMessage }}
+</div> -->
+
+<!-- Modal -->
+<div *ngIf="alertErrorMessage" class="modal custom-modal check-availability-modal payment-success-modal error-modal">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="payment-success">
+                    <span class="check">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </span>
+                    <h5>{{lang.v.error}}</h5>
+                    <p>
+                        <span>{{ alertErrorMessage }}</span>
+                    </p>
+                    <button class="btn btn-primary close-btn" (click)="closeAlertError()">{{lang.v.close}}</button>
+                </div>						
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->
+
+<!-- Modal -->
+<div *ngIf="alertSuccessMessage" class="modal custom-modal check-availability-modal payment-success-modal success-modal">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="payment-success">
+                    <span class="check">
+                        <i class="fa-solid fa-check-double"></i>
+                    </span>
+                    <h5>{{lang.v.success}}</h5>
+                    <p>
+                        <span>{{ alertSuccessMessage }}</span>
+                    </p>
+                    <button class="btn btn-primary close-btn" (click)="closeAlertSuccess()">{{lang.v.close}}</button>
+                </div>						
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal -->

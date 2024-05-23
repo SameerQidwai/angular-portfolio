@@ -1,0 +1,123 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h1 class="breadcrumb-title"> {{lang.v.contact_us}}</h1>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="routes.home"> {{lang.v.home}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> {{lang.v.contact_us}}</li>
+                    </ol>
+                </nav>							
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadscrumb Section -->		     	
+
+<!-- Contact us -->
+<section class="contact-section">
+    <div class="container">
+        <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img 
+                        src="assets/img/contact-info.jpg" 
+                        class="img-fluid" 
+                        alt="{{lang.v.contact_us}}" 
+                        title="{{lang.v.contact_us}}" 
+                        width="614" 
+                        height="592">
+                </div>
+                <div class="col-lg-6">
+                    <form action="#">
+                        <div class="row">
+                            <h1>{{lang.v.get_in_touch}}</h1>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>{{lang.v.name}} <span class="text-danger">*</span></label>
+                                    <input [(ngModel)]="app.name" name="name" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>{{lang.v.email_address}} <span class="text-danger">*</span></label>
+                                    <input [(ngModel)]="app.email" name="email" type="email" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>{{lang.v.phone_number}} <span class="text-danger">*</span></label>
+                                    <input [(ngModel)]="app.phone" name="phone" type="number" class="form-control" placeholder="">
+                                </div>
+                            </div>							
+                            <div class="col-md-12"> 
+                                <div class="form-group">
+                                    <label>{{lang.v.comments}} <span class="text-danger">*</span></label>
+                                    <textarea [(ngModel)]="app.comments" name="comments" type="text" class="form-control" rows="4" cols="50" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>		
+                        <button class="btn contact-btn" type="button" (click)="app.call_contactus(1)">{{lang.v.send_enquiry}}</button>					
+                    </form>
+                </div>
+            </div>
+        </div>	
+
+        <div class="contact-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.1"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-phone-call"></i></span>
+                        <h3>{{lang.v.telephone}}</h3>
+                        <a class="black" href="tel:51542400">
+                            51542400 <br>
+                            {{lang.v.telephone_hours_monday_friday}}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.2"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-mail"></i></span>
+                        <h3>{{lang.v.email}}</h3>
+                        <a class="black" href="mailto:post@flyttom.no">post@flyttom.no</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.3"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-map-pin"></i></span>
+                        <h3>{{lang.v.visiting_address}}</h3>
+                        <a class="black" href="javascript:void(0);"> Fabrikkveien 7, 4033 Stavanger</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.4"> 
+                    <div class="single-contact-info flex-fill">
+                        <span><i class="feather icon-clock"></i></span>
+                        <h3>{{lang.v.opening_hours}}</h3>
+                        <a class="black" href="javascript:void(0);">
+                            {{lang.v.monday_friday}} <br>
+                            09:00 - 16:00 <br>
+                            {{lang.v.saturday}} <br>
+                            {{lang.v.only_by_appointment}} <br>
+                            {{lang.v.sunday}} <br>
+                            {{lang.v.only_by_appointment}}
+                        </a>                            
+                    </div>
+                </div>
+
+
+                <div class="col-12 d-flex">
+                    <iframe 
+                        class="iframe_block"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19050.22187027819!2d5.684566543398721!3d58.89649548962401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463a35fac4695ec3%3A0x1ccfa2429f4eb761!2sFabrikkveien%207%2C%204033%20Stavanger%2C%20Norway!5e0!3m2!1sen!2s!4v1706630480873!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>	
+</section>	
+<!-- /Contact us -->	

@@ -1,0 +1,102 @@
+.car_price{
+    color: #CF243F;
+}
+.car_price .from_time{
+    color: black;
+    font-weight: normal !important;
+    font-size: 16px !important;
+}
+
+.black{
+    color: black !important;
+}
+
+.listing-button .btn-order{
+    background: #2B346B !important;
+}
+
+.btn-order:hover{
+    border: 1px solid #bb1f37 !important;
+    background: #CF243F !important;
+}
+
+
+
+.listing-location-details{
+    background: white !important;
+    border-top: 1px solid #F4F4F4;
+    text-align: center;
+    display: block !important;
+    margin: 0px !important;
+    padding: 16px 0px !important;
+
+}
+
+.listing-location-details  .from_time{
+    font-weight: normal !important;
+    font-size: 16px !important;
+}
+
+
+.listing-content p {
+    color: black !important;
+}
+ 
+.listing-content .listing-price h3 {
+    color: #2B346B !important;
+}
+
+.listing-content .listing-price h3 span{
+    color: #2B346B !important;
+}
+
+.listing-button{
+    .btn-order{
+        background: #2B346B !important;
+    }
+}
+
+.listing-item .listing-img .fav-item .featured-text {
+    color: black;
+}
+
+.listing-item:hover{
+    .fav-icon{
+        background: #CF243F !important;
+        border: 1px solid #bb1f37 !important;
+    }
+    .btn-order{
+        border: 1px solid #bb1f37 !important;
+        background: #CF243F !important;
+    }
+
+    .featured-text{
+        background: #CF243F !important;
+        color: white !important;
+    }
+}
+
+.listing-features .author-img {
+    top: -80px !important;
+}
+
+.listing-features .author-img p{
+    color: white !important;
+}
+
+@media (min-width: 786px) {
+
+    .listview-img{
+        width: 220px !important;
+        height: 180px !important;
+    }
+    
+}
+
+
+.caritem_bg{
+    min-height: 320px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}

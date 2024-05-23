@@ -1,0 +1,20 @@
+.black{
+    color: black !important;
+}
+.contact-info-area{
+    margin-top: 50px !important;
+}
+
+.single-contact-info:hover {
+    a{
+        color: white !important;
+    }
+}
+
+.iframe_block{
+    border-radius: 10px;
+    border:0; 
+    width: 100%; 
+    height: 350px;
+    margin-top: 50px;
+}

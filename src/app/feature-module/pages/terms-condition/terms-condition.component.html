@@ -1,0 +1,37 @@
+<!-- Breadscrumb Section -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <h1 class="breadcrumb-title">Rental Terms</h1>
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="routes.home">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Rental Terms</li>
+                    </ol>
+                </nav>							
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadscrumb Section -->		     	
+
+<!-- Terms & Conditions -->
+<section class="privacy-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="terms-policy" *ngIf="app.record_validation(rentalterms_desc)">   
+                    <ng-container *ngIf="app.current_lang == 'en'">
+                        <div [innerHTML]="rentalterms_desc"></div>
+                    </ng-container>
+
+                    <ng-container *ngIf="app.current_lang == 'no'">
+                        <div [innerHTML]="rentalterms_desc_no"></div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>		
+    </div>	
+</section>	
+<!-- /Terms & Conditions -->

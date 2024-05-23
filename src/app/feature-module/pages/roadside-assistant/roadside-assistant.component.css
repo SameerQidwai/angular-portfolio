@@ -1,0 +1,26 @@
+.form-info-area .about-content h2{
+    color: #2B346B;
+    text-shadow: 1px 1px #b7bfed;
+}
+
+.form-info-area .about-content p{
+    color: black;
+    text-shadow: 1px 1px #b7bfed;
+}
+
+@media (min-width: 992px) {
+    .lgpright_0 {
+        padding-right: 0px !important;
+    }
+
+    .form-info-area .about-content h2{
+        font-weight: 800 !important;
+        line-height: 60px !important;
+        margin-top: 50px !important;
+    }
+    
+    .form-info-area .about-content p{
+        font-size: 25px !important;
+        font-weight: 600 !important;
+    }  
+}
